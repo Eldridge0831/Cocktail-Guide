@@ -1,23 +1,43 @@
-import logo from './logo.svg';
+import React from 'react';
+import TopNav from './components/TopNav';
+import SideNav from './components/SideNav';
+import Home from './components/Home';
+import DrinkName from './components/DrinkName';
+import SingleDrink from './components/SingleDrink';
+import DrinkList from './components/DrinkList';
+import Page404 from './components/Page404';
 import './App.css';
 
-function App() {
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className = 'App'>
+      <Router>
+        <TopNav/>
+        <SideNav/>
+        <Switch>
+          <Route path = '/home'>
+            <Home/>
+          </Route>
+        </Switch>
+        <Route path = '/name'>
+          <DrinkName/>
+        </Route>
+        <Route path = '/letter'>
+          <DrinkList/>
+        </Route>
+        <Route path = '/drink'>
+          <SingleDrink/>
+        </Route>
+        <Route path = '/404'>
+          <Page404/>
+        </Route>
+      </Router>
     </div>
   );
 }
