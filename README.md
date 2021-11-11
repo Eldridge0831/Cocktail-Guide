@@ -1,4 +1,6 @@
-# Featured stack
+# Cocktail Guide
+
+## Featured stack
 
   - React
   - React-Redux
