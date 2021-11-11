@@ -4,7 +4,6 @@ import {useDispatch} from "react-redux";
 import 'bootstrap/dist/css/bootstrap.css';
 import { setDrinkSelection } from "../reducers/creators/actionCreators";
 import { useHistory } from "react-router-dom";
-import Page404 from './Page404';
 
 
 function DrinkName (props) {
@@ -82,7 +81,7 @@ function DrinkName (props) {
                             <tr>
                                 <button onClick={() => handleDrinkSelection(drink)}>See Your Drink</button>
                                 <td>{drink.strDrink}</td>
-                                <td><img src = {drink.strDrinkThumb} alt = "Cocktail" /></td>
+                                <td><img src = {drink.strDrinkThumb} alt = "Cocktail" width = "500rem" /></td>
                             </tr>
                         ))
                     }

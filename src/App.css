@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: grey;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -7,10 +9,39 @@
   pointer-events: none;
 }
 
-.TopNav-logo2 {
-  height: 10%;
+.card {
+  flex-direction: row;
+  align-items: center;
 
 }
+
+.card img {
+  width: 35%;
+}
+
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: lightskyblue;
+  color: black !important;
+  
+}
+
+.nav-link {
+  color: black;
+}
+
+
+
+
+.drink-container {
+  align-items: center;
+  display: flex;
+}
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
