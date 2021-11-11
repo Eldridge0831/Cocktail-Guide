@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 import 'bootstrap/dist/css/bootstrap.css';
 import { setDrinkSelection } from "../reducers/creators/actionCreators";
 import { useHistory } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 
 function DrinkName (props) {
@@ -18,7 +19,7 @@ function DrinkName (props) {
         return axios.get (`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${inputValue}`)
         .then (drinks => drinks.data)
         .then (data => {
-            console.log(data);
+            // console.log(data);
             setInputValue("")
             if (data['drinks'] === null) {
                 setDrinkListData([])
@@ -28,32 +29,28 @@ function DrinkName (props) {
         });
     } 
 
+    //Getting a random drink to display when navigating to the page
     useEffect (() => {
         getRandomDrink()
     },[])
-
-    // if (drinkListData === []) {
-        
-    // }
-
 
     const getRandomDrink = () => {
         return axios.get (`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
         .then (drinks => drinks.data)
         .then (data => {
-            console.log("api called")
+            // console.log("api called")
             return setDrinkListData(data['drinks'])
         });
     };
 
     const handleRequest = (event) => {
-        console.log("request made")
+        // console.log("request made")
         setInputValue(event.target.value)
 
     }
 
     const handleDrinkSelection = (drink) => {
-        console.log(drink);
+        // console.log(drink);
         dispatch(setDrinkSelection(drink));
         history.push('/drink')   
     }
@@ -66,8 +63,8 @@ function DrinkName (props) {
                 <button type="submit">Submit</button>
             </form>
         
-            <div className = "drinkName-container">
-                <table className = "table">
+            <div className = "drinkName-container justify-content-center align-items-center d-flex">
+                <table className = "table border border-dark align-middle">
                     <thead>
                         <tr>
                             <th>Select</th>
@@ -78,10 +75,10 @@ function DrinkName (props) {
                     <tbody>
                     {
                         drinkListData.map((drink, index) => (
-                            <tr>
-                                <button onClick={() => handleDrinkSelection(drink)}>See Your Drink</button>
+                            <tr key="drink.IdDrink">
+                                <Button className="btn btn-dark" onClick={() => handleDrinkSelection(drink)}>See Details</Button>
                                 <td>{drink.strDrink}</td>
-                                <td><img src = {drink.strDrinkThumb} alt = "Cocktail" width = "500rem" /></td>
+                                <td><img src = {drink.strDrinkThumb} alt = "Cocktail" width = "50%" /></td>
                             </tr>
                         ))
                     }

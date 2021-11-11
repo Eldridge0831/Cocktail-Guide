@@ -20,7 +20,7 @@ function App(props) {
       <Router>
         <TopNav/>
         <Switch>
-          <Route path = '/home'>
+          <Route exact path = '/'>
             <Home/>
           </Route>
         </Switch>

@@ -4,19 +4,16 @@
   min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 .card {
   flex-direction: row;
   align-items: center;
+  background-color: lightskyblue;
 
 }
 
 .card img {
-  width: 35%;
+  width: 100%;
 }
 
 .profile-card {
@@ -71,11 +68,3 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

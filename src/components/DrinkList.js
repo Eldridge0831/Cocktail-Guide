@@ -14,21 +14,23 @@ function DrinkList (props) {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    // API call
     const fetchDrinkList = (event) => {
         event.preventDefault()
         return axios.get (`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${inputValue}`)
         .then (drinks => drinks.data)
         .then (data => {
-            console.log(data);
+            // console.log(data);
             setInputValue("")
             if (data['drinks'] === null) {
                 setDrinkListData([])
-                history.push('/404')
+                history.push('/404') // redirect for bad request
             } else 
                 setDrinkListData(data['drinks'])
         });
     } 
 
+    //Getting a random drink to display when navigating to the page
     useEffect (() => {
         getRandomDrink()
     },[])
@@ -37,21 +39,22 @@ function DrinkList (props) {
         return axios.get (`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
         .then (drinks => drinks.data)
         .then (data => {
-            console.log("api called")
+            // console.log("api called")
             return setDrinkListData(data['drinks'])
         });
     };
 
 
-
+    // Capturing value for API call
     const handleRequest = (event) => {
-        console.log("request made")
+        // console.log("request made")
         setInputValue(event.target.value)
 
     }
 
+    // Capturing drink selection and navigating to singledrink component
     const handleDrinkSelection = (drink) => {
-        console.log(drink);
+        // console.log(drink);
         dispatch(setDrinkSelection(drink));
         history.push('/drink')   
     }
@@ -65,7 +68,7 @@ function DrinkList (props) {
             </form>
         
             <div className = "drinkList-container">
-                <table className = "table">
+                <table className = "table border border-dark align-middle">
                     <thead>
                         <tr>
                             <th>Select</th>
@@ -76,10 +79,10 @@ function DrinkList (props) {
                     <tbody>
                     {
                         drinkListData.map((drink, index) => (
-                            <tr>
-                                <Button onClick={() => handleDrinkSelection(drink)}>See Your Drink</Button>
+                            <tr key="drink.IdDrink">
+                                <Button className="btn btn-dark" onClick={() => handleDrinkSelection(drink)}>See Details</Button>
                                 <td>{drink.strDrink}</td>
-                                <td><img src = {drink.strDrinkThumb} alt = "Cocktail" width = "500rem"/></td>
+                                <td><img src = {drink.strDrinkThumb} alt = "Cocktail" width = "50%"/></td>
                             </tr>
                         ))
                     }
