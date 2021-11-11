@@ -5,7 +5,7 @@ import { Card } from 'react-bootstrap';
 function About (props) {
     return(
         <div className = "container-about justify-content-center align-items-center d-flex mt-5">
-            <Card className="profile-card" border="primary" style={{ width: '30%'}}>          
+            <Card className="profile-card" border="primary" style={{ width: '40%'}}>          
                 <Card.Img className="card-img-top" variant="top" src={profile} alt="profile" />
                 <Card.Body>
                     <Card.Title>Charles Eldridge</Card.Title>
