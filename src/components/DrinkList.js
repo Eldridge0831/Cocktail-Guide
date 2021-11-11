@@ -5,14 +5,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Button } from "react-bootstrap";
 import { setDrinkSelection } from "../reducers/creators/actionCreators";
 import { useHistory } from "react-router-dom";
-import Page404 from './Page404';
 
 
 function DrinkList (props) {
 
     const [drinkListData, setDrinkListData] = useState ([]);
     const [inputValue, setInputValue] = useState ("");
-    const [httpStatusCode, setHttpStatusCode] = useState ();
     const dispatch = useDispatch();
     const history = useHistory();
 
