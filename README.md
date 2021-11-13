@@ -1,5 +1,9 @@
 # Cocktail Guide
 
+## API used
+
+  https://www.thecocktaildb.com/
+  
 ## Featured stack
 
   - React
