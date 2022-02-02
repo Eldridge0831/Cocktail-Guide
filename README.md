@@ -24,14 +24,13 @@
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
+Deployed on Heroku.  https://hitchhiker-guide-to-drinking.herokuapp.com/
 
 ## Known Issues // Room For Improvement
 
   - Button nesting error on multiple components.
   - Two children sharing a key on multiple components.
   - Navbar does not collapse properly.
-  - Create more ways to search for drinks.
 
 ## Links
 
